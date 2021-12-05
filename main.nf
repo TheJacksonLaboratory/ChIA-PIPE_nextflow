@@ -82,9 +82,6 @@ if ( ! params.fastqInputs ) {
 if ( ! params.outputDir ) {
     exit 1, "Parameter ERROR: Output directory parameter must be specified."
 }
-if ( ! file(params.outputDir).exists() ) {
-    exit 1, "Parameter ERROR: Missing base root output directory ($params.outputDir) is not found: check if path is correct."
-}
 
 
 // Check bwaIndex, append file extensions to check exists

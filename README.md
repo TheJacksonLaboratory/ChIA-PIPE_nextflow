@@ -11,7 +11,8 @@ User Guide:
 ([https://jacksonlaboratory.sharepoint.com/sites/ResearchIT/SitePages/JAX-Singularity-Container-Registry-User-Guide.aspx](https://jacksonlaboratory.sharepoint.com/sites/ResearchIT/SitePages/JAX-Singularity-Container-Registry-User-Guide.aspx))
 
 
-## To test the pipeline: Install Nextflow, ChIA-PIPE_nextflow and Run
+
+## To test the pipeline: install Nextflow, ChIA-PIPE_nextflow and run
 
 
 ### [Install Nextflow](https://www.nextflow.io/index.html#GetStarted)
@@ -83,6 +84,7 @@ sbatch submit_chiapipe.sh
 
 The pipeline output files will be located in the outputDir within your run directory.
 For example: `ChIA-PIPE_nxf_output/*`
+
 
 
 **NOTE : You must specify a location for the pipeline in the wrapper script.**
