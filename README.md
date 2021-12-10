@@ -57,16 +57,34 @@ params {
 Plus any other optional parameters, which can be shown by passing the --help argument.
 
 ```   
-nextflow run TheJacksonLaboratory/ChIA-PIPE_nextflow --help
+nextflow run /path/to/installed/ChIA-PIPE_nextflow --help
 ```
 
-Make sure the input files are in the format: LibraryID_*R{1,2}*.fastq.gz
+DO NOT use the full input fastq file names like: 
+LHG0146_GT21-16861_CTCTCTAC-AAGGAGTA_S1_R1_001.fastq.gz
+LHG0146_GT21-16861_CTCTCTAC-AAGGAGTA_S1_R2_001.fastq.gz
 
-Here is an example of fastqInputs (Comma delimited):
+
+Make sure the input files are in this format: 
+LibraryID_*R{1,2}*.fastq.gz
+
+E.g.
+LHG0146_R1_001.fastq.gz
+LHG0146_R2_001.fastq.gz
+
+
+Make the symbolic links for the full input fastq file names with the following commands. Here LHG0146 is a LibraryID.
+
+ln -s LHG0146_GT21-16861_CTCTCTAC-AAGGAGTA_S1_R1_001.fastq.gz LHG0146_R1_001.fastq.gz
+ln -s LHG0146_GT21-16861_CTCTCTAC-AAGGAGTA_S1_R2_001.fastq.gz LHG0146_R2_001.fastq.gz
+
+
+This is an example of fastqInputs (Comma delimited).
 fastqInputs = "${_fqPath}/LHG0146_R1_001.fastq.gz,${_fqPath}/LHG0146_R2_001.fastq.gz"
 
 
 You can use an example parameter file [(can be found here)](https://github.com/TheJacksonLaboratory/ChIA-PIPE_nextflow/blob/main/params.config) for testing.
+
 
 
 #### Launch Pipeline with SLURM Wrapper Script::
@@ -87,5 +105,9 @@ For example: `ChIA-PIPE_nxf_output/*`
 
 
 
-**NOTE : You must specify a location for the pipeline in the wrapper script.**
-`export projectDir=/path/to/Installed_ChIA-PIPE_nextflow_pipeline`
+**NOTE 1: You must specify a location for the pipeline in the wrapper script.**
+`export projectDir=/path/to/installed_ChIA-PIPE_nextflow_pipeline`
+
+**NOTE 2: You must make the symbolic links for the full input fastq file names as shown above.**
+
+**NOTE 3: You must set up your access to [The Jackson Laboratory Container Registry](https://jaxreg.jax.org/) (jaxreg) as per above User Guide.**
