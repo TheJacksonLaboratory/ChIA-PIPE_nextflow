@@ -60,30 +60,37 @@ Plus any other optional parameters, which can be shown by passing the --help arg
 nextflow run /path/to/installed/ChIA-PIPE_nextflow --help
 ```
 
-DO NOT use the full input fastq file names like: 
+DO NOT use the full input fastq file names like:
+``` 
 LHG0146_GT21-16861_CTCTCTAC-AAGGAGTA_S1_R1_001.fastq.gz
 LHG0146_GT21-16861_CTCTCTAC-AAGGAGTA_S1_R2_001.fastq.gz
-
+```
 
 Make sure the input files are in this format: 
+```
 LibraryID_*R{1,2}*.fastq.gz
+```
 
 E.g.
+```
 LHG0146_R1_001.fastq.gz
 LHG0146_R2_001.fastq.gz
-
+```
 
 Make the symbolic links for the full input fastq file names with the following commands. Here LHG0146 is a LibraryID.
 
+```
 ln -s LHG0146_GT21-16861_CTCTCTAC-AAGGAGTA_S1_R1_001.fastq.gz LHG0146_R1_001.fastq.gz
 ln -s LHG0146_GT21-16861_CTCTCTAC-AAGGAGTA_S1_R2_001.fastq.gz LHG0146_R2_001.fastq.gz
-
+```
 
 This is an example of fastqInputs (Comma delimited).
+```
 fastqInputs = "${_fqPath}/LHG0146_R1_001.fastq.gz,${_fqPath}/LHG0146_R2_001.fastq.gz"
-
+```
 
 You can use an example parameter file [(can be found here)](https://github.com/TheJacksonLaboratory/ChIA-PIPE_nextflow/blob/main/params.config) for testing.
+
 
 
 
